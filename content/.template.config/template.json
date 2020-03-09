@@ -18,23 +18,17 @@
 			"description": "If specified, skips the automatic restore of the project on create.",
 			"defaultValue": "false"
 		},
-		"url": {
+		"uri": {
 			"type": "parameter",
 			"datatype": "string",
-			"replaces": "RundeckUrl",
+			"replaces": "RundeckUri",
 			"description": "If specified, sets the Rundeck URL in the appsettings.json file."
 		},
-		"username": {
+		"apiToken": {
 			"type": "parameter",
 			"datatype": "string",
-			"replaces": "RundeckUsername",
-			"description": "If specified, sets the Rundeck username in the appsettings.json file."
-		},
-		"password": {
-			"type": "parameter",
-			"datatype": "string",
-			"replaces": "RundeckPassword",
-			"description": "If specified, sets the Rundeck password in the appsettings.json file."
+			"replaces": "RundeckApiToken",
+			"description": "If specified, sets the Rundeck API token in the appsettings.json file."
 		}
 	},
 	"postActions": [{
