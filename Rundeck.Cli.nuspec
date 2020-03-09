@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
   <metadata>
     <id>Rundeck.Cli</id>
-    <version>1.0.2</version>
+    <version>1.0.3</version>
     <description>Creates a template Rundeck project for .NET Core 3.1.
 
 To install (or update) the template, type:
@@ -33,7 +33,7 @@ This should provide some basic information about your Rundeck account to demonst
 	 <icon>Icon.png</icon>
 	 <projectUrl>https://github.com/panoramicdata/Rundeck.Cli</projectUrl>
 	 <releaseNotes>
-		Correction to dotnet new rundeck instructions in package description.
+		Fixes to credentials scaffolding.
 	 </releaseNotes>
 	 <copyright>Panoramic Data Limited 2020</copyright>
   </metadata>
