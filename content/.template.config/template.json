@@ -1,0 +1,49 @@
+{
+	"$schema": "http://json.schemastore.org/template",
+	"author": "Panoramic Data Limited",
+	"classifications": ["Rundeck", "API", "Console", "CLI"],
+	"identity": "Rundeck.Cli",
+	"name": "Rundeck Cli Application",
+	"shortName": "rundeck",
+	"tags": {
+		"language": "C#",
+		"type": "project"
+	},
+	"sourceName": "Rundeck.Cli",
+	"preferNameDirectory": true,
+	"symbols": {
+		"skipRestore": {
+			"type": "parameter",
+			"datatype": "bool",
+			"description": "If specified, skips the automatic restore of the project on create.",
+			"defaultValue": "false"
+		},
+		"url": {
+			"type": "parameter",
+			"datatype": "string",
+			"replaces": "RundeckUrl",
+			"description": "If specified, sets the Rundeck URL in the appsettings.json file."
+		},
+		"username": {
+			"type": "parameter",
+			"datatype": "string",
+			"replaces": "RundeckUsername",
+			"description": "If specified, sets the Rundeck username in the appsettings.json file."
+		},
+		"password": {
+			"type": "parameter",
+			"datatype": "string",
+			"replaces": "RundeckPassword",
+			"description": "If specified, sets the Rundeck password in the appsettings.json file."
+		}
+	},
+	"postActions": [{
+		"condition": "(!skipRestore)",
+		"description": "Restore NuGet packages required by this project.",
+		"manualInstructions": [{
+			"text": "Run 'dotnet restore'"
+		}],
+		"actionId": "210D431B-A78B-4D2F-B762-4ED3E3EA9025",
+		"continueOnError": true
+	}]
+}
