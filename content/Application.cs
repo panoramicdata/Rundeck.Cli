@@ -68,7 +68,7 @@ namespace Rundeck.Cli
 				.GetAllAsync(cancellationToken)
 				.ConfigureAwait(false);
 
-			_logger.LogInformation($"You have access to {projects.Count} project{(projects.Count > 1 ? "s" : "")}:");
+			_logger.LogInformation($"You have access to {projects.Count} project{(projects.Count != 1 ? "s" : "")}:");
 
 			// Summarize each one:
 			foreach (var project in projects)
