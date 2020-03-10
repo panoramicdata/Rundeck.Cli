@@ -4,6 +4,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using System.Threading;
 using System.Threading.Tasks;
+using System;
 
 namespace Rundeck.Cli
 {
@@ -20,7 +21,7 @@ namespace Rundeck.Cli
 		/// <summary>
 		/// The client to use for API interaction
 		/// </summary>
-		private readonly RundeckClient _RundeckClient;
+		private readonly RundeckClient _rundeckClient;
 
 		/// <summary>
 		/// The logger
@@ -46,10 +47,10 @@ namespace Rundeck.Cli
 			_logger = loggerFactory.CreateLogger<Application>();
 
 			// Create a portal client
-			_RundeckClient = new RundeckClient(
+			_rundeckClient = new RundeckClient(
 				new RundeckClientOptions
 				{
-					Uri = _config.RundeckCredentials.Uri,
+					Uri = new Uri(_config.RundeckCredentials.Uri),
 					ApiToken = _config.RundeckCredentials.ApiToken,
 					Logger = _logger
 				}
@@ -61,24 +62,18 @@ namespace Rundeck.Cli
 			// Use _logger for logging
 			_logger.LogInformation($"Application start.  Setting1 is set to {_config.Setting1}");
 
-			// Use asynchronous calls to _RundeckClient to interact with the portal
-			var organizations = await _RundeckClient
-				.Organizations
+			// Use asynchronous calls to _rundeckClient to interact with the API
+			var projects = await _rundeckClient
+				.Projects
 				.GetAllAsync(cancellationToken)
 				.ConfigureAwait(false);
 
-			_logger.LogInformation($"You have access to {organizations.Count} organization{(organizations.Count > 1 ? "s" : "")}:");
+			_logger.LogInformation($"You have access to {projects.Count} project{(projects.Count > 1 ? "s" : "")}:");
 
 			// Summarize each one:
-			foreach (var organization in organizations)
+			foreach (var project in projects)
 			{
-				// Get the networks:
-				var networks = await _RundeckClient
-				.Organizations
-				.GetNetworksAsync(organization.Id)
-				.ConfigureAwait(false);
-
-				_logger.LogInformation($"- {organization.Name} with {networks.Count} network{(networks.Count > 1 ? "s" : "")}");
+				_logger.LogInformation($"- {project.Name}");
 			}
 		}
 	}
