@@ -12,6 +12,6 @@
     <PackageVersion Include="Roslynator.Analyzers" Version="5.0.0" />
     <PackageVersion Include="Roslynator.CodeFixes" Version="1.9.0" />
     <PackageVersion Include="Rundeck.Api" Version="34.0.60" />
-    <PackageVersion Include="Nerdbank.GitVersioning" Version="3.9.50" />
+    <PackageVersion Include="Nerdbank.GitVersioning" Version="3.10.94" />
   </ItemGroup>
 </Project>
