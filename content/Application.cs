@@ -60,7 +60,7 @@ namespace Rundeck.Cli
 		public async Task RunAsync(CancellationToken cancellationToken)
 		{
 			// Use _logger for logging
-			_logger.LogInformation($"Application start.  Setting1 is set to {_config.Setting1}");
+			_logger.LogInformation("Application start.  Setting1 is set to {Setting1}", _config.Setting1);
 
 			// Use asynchronous calls to _rundeckClient to interact with the API
 			var projects = await _rundeckClient
@@ -68,12 +68,12 @@ namespace Rundeck.Cli
 				.GetAllAsync(cancellationToken)
 				.ConfigureAwait(false);
 
-			_logger.LogInformation($"You have access to {projects.Count} project{(projects.Count != 1 ? "s" : "")}:");
+			_logger.LogInformation("You have access to {ProjectCount} project{Plural}:", projects.Count, projects.Count != 1 ? "s" : "");
 
 			// Summarize each one:
 			foreach (var project in projects)
 			{
-				_logger.LogInformation($"- {project.Name}");
+				_logger.LogInformation("- {ProjectName}", project.Name);
 			}
 		}
 	}
