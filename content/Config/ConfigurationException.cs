@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Collections.Immutable;
 using System.Collections.ObjectModel;
 using System.Linq;
-using System.Runtime.Serialization;
 
 namespace Rundeck.Cli.Config
 {
@@ -13,6 +12,9 @@ namespace Rundeck.Cli.Config
 	[Serializable]
 	public class ConfigurationException : Exception
 	{
+		/// <summary>
+		/// Constructor
+		/// </summary>
 		public ConfigurationException()
 		{
 		}
@@ -26,15 +28,20 @@ namespace Rundeck.Cli.Config
 			Issues = issues.AsReadOnly();
 		}
 
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="message">The message</param>
 		public ConfigurationException(string message) : base(message)
 		{
 		}
 
+		/// <summary>
+		/// Constructor
+		/// </summary>
+		/// <param name="message">The message</param>
+		/// <param name="innerException">The inner exception</param>
 		public ConfigurationException(string message, Exception innerException) : base(message, innerException)
-		{
-		}
-
-		protected ConfigurationException(SerializationInfo info, StreamingContext context) : base(info, context)
 		{
 		}
 

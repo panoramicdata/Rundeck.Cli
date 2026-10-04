@@ -9,10 +9,18 @@ using System.Threading.Tasks;
 
 namespace Rundeck.Cli
 {
+	/// <summary>
+	/// The program entry point
+	/// </summary>
 	public static class Program
 	{
 		private static readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
 
+		/// <summary>
+		/// The entry point
+		/// </summary>
+		/// <param name="args">The command line arguments</param>
+		/// <returns>The process exit code</returns>
 		public static async Task<int> Main(string[] args)
 		{
 			try
