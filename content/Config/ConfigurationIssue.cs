@@ -3,7 +3,7 @@ namespace Rundeck.Cli.Config
 	/// <summary>
 	/// A configuration issue
 	/// </summary>
-	internal class ConfigurationIssue
+	public class ConfigurationIssue
 	{
 		/// <summary>
 		/// Constructor

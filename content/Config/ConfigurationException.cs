@@ -11,7 +11,7 @@ namespace Rundeck.Cli.Config
 	/// A configuration exception
 	/// </summary>
 	[Serializable]
-	internal class ConfigurationException : Exception
+	public class ConfigurationException : Exception
 	{
 		public ConfigurationException()
 		{

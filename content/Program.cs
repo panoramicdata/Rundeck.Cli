@@ -11,7 +11,7 @@ namespace Rundeck.Cli
 {
 	public static class Program
 	{
-		public static CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
+		private static readonly CancellationTokenSource _cancellationTokenSource = new CancellationTokenSource();
 
 		public static async Task<int> Main(string[] args)
 		{
