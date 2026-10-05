@@ -25,6 +25,9 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v7
+      with:
+        # nbgv derives the version from commit height and cannot on a shallow clone.
+        fetch-depth: 0
 
     - name: Initialize CodeQL
       uses: github/codeql-action/init@v4
