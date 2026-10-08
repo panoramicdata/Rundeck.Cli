@@ -2,10 +2,10 @@ name: CI
 
 on:
   push:
-    branches: [main]
+    branches: [main, master]
     tags: ['[0-9]*.[0-9]*.[0-9]*']
   pull_request:
-    branches: [main]
+    branches: [main, master]
 
 jobs:
   build:
@@ -26,6 +26,23 @@ jobs:
 
     - name: Build
       run: dotnet build --configuration Release --no-restore
+
+    - name: Test with coverage
+      run: dotnet test tests/Rundeck.Cli.Tests/Rundeck.Cli.Tests.csproj --configuration Release --coverage --coverage-output-format cobertura --coverage-output coverage.cobertura.xml
+
+    - name: Check for Codacy token
+      id: codacy
+      env:
+        CODACY_PROJECT_TOKEN: ${{ secrets.CODACY_PROJECT_TOKEN }}
+      run: |
+        if [ -n "$CODACY_PROJECT_TOKEN" ]; then echo "enabled=true" >> "$GITHUB_OUTPUT"; fi
+
+    - name: Upload coverage to Codacy
+      if: steps.codacy.outputs.enabled == 'true'
+      uses: codacy/codacy-coverage-reporter-action@v1.3.0
+      with:
+        project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
+        coverage-reports: TestResults/coverage.cobertura.xml
 
     - name: Pack
       run: dotnet pack --configuration Release --no-build --output ./artifacts
