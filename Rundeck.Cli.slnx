@@ -1,0 +1,8 @@
+<Solution>
+	<Folder Name="/content/">
+		<Project Path="content/Rundeck.Cli.csproj" />
+	</Folder>
+	<Folder Name="/tests/">
+		<Project Path="tests/Rundeck.Cli.Tests/Rundeck.Cli.Tests.csproj" />
+	</Folder>
+</Solution>

@@ -31,7 +31,7 @@ namespace Rundeck.Cli
 				ConfigureServices(serviceCollection, configurationRoot);
 				var serviceProvider = serviceCollection.BuildServiceProvider();
 
-				var application = serviceProvider.GetService<Application>();
+				var application = serviceProvider.GetRequiredService<Application>();
 
 				// Establish an event handler to process key press events.
 				Console.CancelKeyPress += CancelEventHandler;
