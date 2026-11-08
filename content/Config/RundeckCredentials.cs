@@ -10,12 +10,12 @@ namespace Rundeck.Cli.Config
 		/// <summary>
 		/// The Rundeck URI
 		/// </summary>
-		public string Uri { get; set; }
+		public string Uri { get; set; } = string.Empty;
 
 		/// <summary>
 		/// The Rundeck API token
 		/// </summary>
-		public string ApiToken { get; set; }
+		public string ApiToken { get; set; } = string.Empty;
 
 		/// <summary>
 		/// Ensures that all values are set and are of the expected length
