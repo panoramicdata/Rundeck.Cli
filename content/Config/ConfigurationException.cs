@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Collections.Immutable;
 using System.Collections.ObjectModel;
 using System.Linq;
 
@@ -49,9 +48,11 @@ namespace Rundeck.Cli.Config
 		/// The issues
 		/// </summary>
 		/// <returns></returns>
-		public ReadOnlyCollection<ConfigurationIssue> Issues { get; }
+		public ReadOnlyCollection<ConfigurationIssue> Issues { get; } = new([]);
 
 		/// <inheritdoc />
-		public override string ToString() => $"Configuration issues:\r\n{Issues.Select(i => i.Message + "\r\n")}";
+		public override string ToString() => Issues.Count == 0
+			? base.ToString()
+			: $"Configuration issues:{Environment.NewLine}{string.Join(Environment.NewLine, Issues.Select(i => i.Message))}";
 	}
 }

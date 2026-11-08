@@ -9,12 +9,12 @@ namespace Rundeck.Cli.Config
 		/// <summary>
 		/// Rundeck credentials
 		/// </summary>
-		public RundeckCredentials RundeckCredentials { get; set; }
+		public RundeckCredentials RundeckCredentials { get; set; } = new();
 
 		/// <summary>
 		/// DELETE THIS!
 		/// Provided as a first example
 		/// </summary>
-		public string Setting1 { get; set; }
+		public string Setting1 { get; set; } = string.Empty;
 	}
 }
