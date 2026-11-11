@@ -1,8 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Solution>
-	<Folder Name="/content/">
-		<Project Path="content/Rundeck.Cli.csproj" />
-	</Folder>
-	<Folder Name="/tests/">
-		<Project Path="tests/Rundeck.Cli.Tests/Rundeck.Cli.Tests.csproj" />
-	</Folder>
+  <Folder Name="/content/">
+    <Project Path="content/Rundeck.Cli.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Rundeck.Cli.Tests/Rundeck.Cli.Tests.csproj" />
+  </Folder>
+  <Folder Name="/Solution Items/">
+    <File Path=".editorconfig" />
+    <File Path=".gitignore" />
+    <File Path="CONTRIBUTING.md" />
+    <File Path="Directory.Build.props" />
+    <File Path="Directory.Packages.props" />
+    <File Path="global.json" />
+    <File Path="LICENSE" />
+    <File Path="Publish.ps1" />
+    <File Path="README.md" />
+    <File Path="SECURITY.md" />
+    <File Path="version.json" />
+  </Folder>
 </Solution>
